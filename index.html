@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script src="https://www.script-forge.top/head.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScriptForge 网站的主页</title>
+  <meta name="description" content="ScriptForge 网站的主页。">
+  <meta property="og:title" content="ScriptForge 网站的主页">
+  <meta property="og:description" content="用于展示 ScriptForge 网站的内容">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.script-forge.top/dependency/ScriptForge.png">
+
+  <!-- 引入 Tailwind CSS CDN / 本地样式 -->
+  <link rel="stylesheet" href="https://www.script-forge.top/css/tailwind.min.css">
+
+  <!-- 引入 Font-Awesome 图标库 -->
+  <link href="https://www.script-forge.top/fontawesome-free-7.3.1/css/all.min.css" rel="stylesheet">
+
+  <!-- 引入 ScriptForge 核心 CSS 库 -->
+  <link rel="stylesheet" href="https://cdn.script-forge.top/Scriptforge-css.css">
+</head>
+<body>
+  <!-- 全局 Toast 容器组件 -->
+  <sf-toast id="global-toast"></sf-toast>
+    
+  <sf-menu>
+    <a href="#" class="text-xl font-bold tracking-tight" style="color: var(--bg-primary);">
+      <i class="fa fa-code mr-1"></i> ScriptForge
+    </a>
+    <a href="https://www.script-forge.top" class="menu-link">
+      <i class="fa fa-solid fa-user-gear"></i>
+      <span>我的主页</span>
+    </a>
+    <a href="https://www.script-forge.top#projects" class="menu-link">
+      <i class="fa fa-solid fa-cubes"></i>
+      <span>核心项目</span>
+    </a>
+    <a href="https://www.script-forge.top#contact" class="menu-link">
+      <i class="fa fa-solid fa-paper-plane"></i>
+      <span>联系方式</span>
+    </a>
+    <a>
+      <a href="https://notes.script-forge.top" class="menu-link">
+      <i class="fa fa-solid fa-book"></i>
+      <span>日记（个人用）</span>
+    </a>
+    <a>
+      <a href="https://notes-mcveatyjx.script-forge.top/" class="menu-link">
+      <i class="fa fa-solid fa-book"></i>
+      <span>日记（For FZC）</span>
+    </a>
+
+    <div slot="right" class="flex items-center gap-3">
+      <a href="https://github.com/ScriptForge666" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors text-lg" title="GitHub Profile">
+        <i class="fa fa-brands fa-github"></i>
+      </a>
+      <div class="flex items-center gap-2 pl-2 border-l border-gray-300 dark:border-gray-700">
+        <i class="fa-solid fa-sun text-xs text-amber-500"></i>
+        <button id="toggle-theme" class="toggle-btn" aria-label="Toggle Theme"></button>
+        <i class="fa-solid fa-moon text-xs text-indigo-400"></i>
+      </div>
+    </div>
+  </sf-menu>
+
+  <main class="page-wrapper py-8">
+    <h1 class="text-3xl font-bold text-center mt-10">欢迎来到 ScriptForge 网站</h1>
+    <div class="card">
+      <p class="text-lg text-center">这是 ScriptForge 网站的主页，您可以在这里找到关于 ScriptForge 的信息和资源。</p>
+      <p class="text-lg text-center mt-4">导航栏包含了大部分所需要的内容。</p>
+      <p class="text-lg text-center mt-4">您可以通过点击右上角的 GitHub 图标访问 ScriptForge 的 GitHub 页面。</p>
+      <p class="text-lg text-center mt-4">点击右上角的切换按钮可以在深色模式和浅色模式之间切换。</p>
+      <p class="text-lg text-center mt-4">
+        <a href="https://www.script-forge.top" class="text-blue-500 hover:underline">访问我的主页</a> |
+        <a href="https://www.script-forge.top#projects" class="text-blue-500 hover:underline">查看核心项目</a> |
+        <a href="https://www.script-forge.top#contact" class="text-blue-500 hover:underline">获取联系方式</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="https://cdn.script-forge.top/Scriptforge-js.js"></script>
+  <script src="https://www.script-forge.top/toggle-theme.js"></script>
+
+  <script>
+    // 显示 Toast 提示
+    function showToastNotification(msg) {
+      const toastComp = document.getElementById('global-toast');
+      if (toastComp && toastComp.showToast) {
+        toastComp.showToast(msg);
+      }
+    }
+
+    // 页面加载完成后触发卡片渐次显现动画
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof revealCardsSequentially === 'function') {
+        revealCardsSequentially(100);
+      }
+    });
+  </script>
+</body>
